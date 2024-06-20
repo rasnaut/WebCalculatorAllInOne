@@ -19,9 +19,10 @@ jobs:
       uses: actions/setup-java@v4
       with:
         java-version: '11'
+        distribution: 'adopt'
 
     - name: Build with Maven
-      run: cd backend && mvn clean install
+      run: cd java_backend/j_calculator/ && mvn clean install
 
     - name: Run tests
-      run: cd backend && mvn test
+      run: cd java_backend/j_calculator/ && mvn test

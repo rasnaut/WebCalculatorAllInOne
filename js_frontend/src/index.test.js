@@ -41,10 +41,7 @@ test('calculate performs addition correctly', () => {
     
     fetchMock.mockResponseOnce(JSON.stringify('8'));
     
-    //await calculate();
-
-    //expect(display.value).toBe('8');
-     calculate().then(() => {
+    calculate().then(() => {
          expect(display.value).toBe('8');
      });
 });
