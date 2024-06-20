@@ -1,0 +1,25 @@
+{
+    "name": "j-calculator-frontend",
+    "version": "1.0.0",
+    "description": "Frontend for Calculator",
+    "main": "src/index.js",
+    "scripts": {
+        "start": "live-server public",
+        "test": "jest",
+        "lint": "eslint src/*.js",
+        "build": "echo 'Building...' && exit 0"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.14.6",
+        "@babel/preset-env": "^7.14.7",
+        "babel-jest": "^27.0.2",
+        "eslint": "^7.29.0",
+        "jest": "^27.0.6",
+        "jest-fetch-mock": "^3.0.3",
+        "jsdom": "^16.6.0",
+        "live-server": "^1.2.0"
+    },
+    "jest": {
+        "testEnvironment": "jsdom"
+    }
+}
