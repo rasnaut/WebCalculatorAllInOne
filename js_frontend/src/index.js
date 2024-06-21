@@ -28,4 +28,6 @@ function calculate() {
     return Promise.resolve();
 }
 
+<button>3</button>
+
 module.exports = { appendNumber, setOperation, calculate };
