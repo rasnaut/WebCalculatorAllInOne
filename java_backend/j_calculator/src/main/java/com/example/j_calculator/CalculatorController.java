@@ -15,4 +15,8 @@ public class CalculatorController {
     public String multiply(@RequestParam int a, @RequestParam int b) {
         return String.valueOf(a * b);
     }
+    @GetMapping("/devide")
+    public String devide(@RequestParam int a, @RequestParam int b) {
+        return String.valueOf(a / b);
+    }
 }
