@@ -1,3 +1,7 @@
+const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8080';
+
+console.log(`Using backend URL: ${backendUrl}`);
+
 let currentOperation = null;
 let firstOperand = null;
 
@@ -18,7 +22,7 @@ function calculate() {
     const secondOperand = parseInt(display.value);
 
     if (currentOperation === '+') {
-        fetch(`http://localhost:8080/api/calculator/add?a=${firstOperand}&b=${secondOperand}`)
+        fetch(`http://${backendUrl}/api/calculator/add?a=${firstOperand}&b=${secondOperand}`)
             .then(response => response.text())
             .then(result => { 
                 display.value = result;
@@ -26,7 +30,7 @@ function calculate() {
              });
     }
     if (currentOperation === '*') {
-        fetch(`http://localhost:8080/api/calculator/multiply?a=${firstOperand}&b=${secondOperand}`)
+        fetch(`http://${backendUrl}/api/calculator/multiply?a=${firstOperand}&b=${secondOperand}`)
             .then(response => response.text())
             .then(result => { 
                 display.value = result;
@@ -34,7 +38,7 @@ function calculate() {
              });
     }
     if (currentOperation === '/') {
-        fetch(`http://localhost:8080/api/calculator/devide?a=${firstOperand}&b=${secondOperand}`)
+        fetch(`http://${backendUrl}/api/calculator/devide?a=${firstOperand}&b=${secondOperand}`)
             .then(response => response.text())
             .then(result => { 
                 display.value = result;
