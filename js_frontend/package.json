@@ -4,7 +4,7 @@
     "description": "Frontend for Calculator",
     "main": "src/index.js",
     "scripts": {
-        "start": "live-server public",
+        "start": "lite-server --config=bs-server.js",
         "test": "jest",
         "lint": "eslint src/*.js",
         "build": "echo 'Building...' && exit 0"
@@ -17,7 +17,8 @@
         "jest": "^27.0.6",
         "jest-fetch-mock": "^3.0.3",
         "jsdom": "^16.6.0",
-        "live-server": "^1.2.0"
+        "lite-server": "^2.6.1",
+        "dotenv": "^16.4.5"
     },
     "jest": {
         "testEnvironment": "jsdom"
