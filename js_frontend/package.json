@@ -7,12 +7,12 @@
         "start": "lite-server --config=bs-server.js",
         "test": "jest",
         "lint": "eslint src/*.js",
-        "build": "echo 'Building...' && exit 0"
+        "build": "babel src -d dist",
+        "build:dev": "babel src -d dist --watch"
     },
     "devDependencies": {
         "@babel/core": "^7.14.6",
         "@babel/preset-env": "^7.14.7",
-        "babel-jest": "^27.0.2",
         "eslint": "^7.29.0",
         "jest": "^27.0.6",
         "jest-fetch-mock": "^3.0.3",
@@ -22,5 +22,8 @@
     },
     "jest": {
         "testEnvironment": "jsdom"
+    },
+    "babel": {
+        "presets": ["@babel/preset-env"]
     }
 }
