@@ -51,22 +51,6 @@ function calculate() {
                 return result;
              });
     }
-    if (currentOperation === '*') {
-        fetch(`${backendUrl}/api/j_calculator/multiply?a=${firstOperand}&b=${secondOperand}`)
-            .then(response => response.text())
-            .then(result => { 
-                display.value = result;
-                return result;
-             });
-    }
-    if (currentOperation === '/') {
-        fetch(`${backendUrl}/api/j_calculator/devide?a=${firstOperand}&b=${secondOperand}`)
-            .then(response => response.text())
-            .then(result => { 
-                display.value = result;
-                return result;
-             });
-    }
     return Promise.resolve();
 }
 
