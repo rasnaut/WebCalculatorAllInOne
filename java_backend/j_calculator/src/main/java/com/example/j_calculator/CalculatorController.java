@@ -12,10 +12,10 @@ public class CalculatorController {
     }
 
     @GetMapping("/power")
-    public int power(
-            @RequestParam int number,
-            @RequestParam int power
+    public double power(
+            @RequestParam double number,
+            @RequestParam double power
     ) {
-        return  Math.pow(number, power);
+        return Math.pow(number, power);
     }
 }
