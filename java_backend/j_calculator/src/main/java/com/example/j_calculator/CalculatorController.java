@@ -10,4 +10,10 @@ public class CalculatorController {
     public String add(@RequestParam int a, @RequestParam int b) {
         return String.valueOf(a + b);
     }
+
+    @GetMapping("/divide")
+    public double divide(@RequestParam double a,@RequestParam double b){
+        return a/b;
+    }
 }
+
