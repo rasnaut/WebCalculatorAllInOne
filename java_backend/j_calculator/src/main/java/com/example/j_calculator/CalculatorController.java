@@ -10,4 +10,9 @@ public class CalculatorController {
     public String add(@RequestParam int a, @RequestParam int b) {
         return String.valueOf(a + b);
     }
+
+    @GetMapping("/substract")
+    public String substract(@RequestParam int a, @RequestParam int b) {
+        return String.valueOf(a - b);
+    }
 }
