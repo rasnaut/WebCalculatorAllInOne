@@ -1,3 +1,0 @@
-# check that files have right new line format
-mvnw text eol=lf
-mvnw.cmd text eol=crlf

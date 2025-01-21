@@ -1,28 +1,28 @@
-# Stage 1: Build 
-FROM openjdk:11-jdk-slim as build
+# Используем официальный образ Maven для сборки приложения
+FROM maven:3.8.1-openjdk-11 AS build
 
-# set working directory
+# Устанавливаем рабочую директорию
 WORKDIR /app
 
-# Copy Maven Wrapper and dependency file
-COPY .mvn/ .mvn
-COPY mvnw pom.xml ./
+# Копируем pom.xml и скачиваем зависимости
+COPY pom.xml .
+RUN mvn dependency:go-offline
 
-# Upload dependency without project rebuild (if code not changed)
-RUN ./mvnw dependency:go-offline -B
-
-# Copy source code and build project
+# Копируем исходный код и собираем проект
 COPY src ./src
-RUN ./mvnw clean package -DskipTests
+RUN mvn clean package -DskipTests
 
-# Stage 2: Execute
+# Используем официальный образ OpenJDK для запуска приложения
 FROM openjdk:11-jre-slim
 
+# Устанавливаем рабочую директорию
 WORKDIR /app
 
-COPY --from=build /app/target/j_calculator-0.0.1-SNAPSHOT.jar app.jar
-ENV ALLOWED_ORIGINS=http://localhost:5000,http://localhost:8080
+# Копируем собранный JAR файл из предыдущего этапа
+COPY --from=build /app/target/calculator-0.0.1-SNAPSHOT.jar app.jar
 
+# Открываем порт 8080 для доступа к приложению
 EXPOSE 8080
 
+# Устанавливаем команду для запуска приложения
 CMD ["java", "-jar", "app.jar"]
