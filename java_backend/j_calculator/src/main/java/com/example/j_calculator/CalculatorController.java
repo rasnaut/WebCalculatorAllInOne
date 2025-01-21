@@ -18,4 +18,19 @@ public class CalculatorController {
         }
         return String.valueOf(Math.sqrt(a));
     }
+
+    @GetMapping("/multiply")
+    public String multiply(@RequestParam int a, @RequestParam int b) {
+        return String.valueOf(a * b);
+    }
+
+    @GetMapping("/devide")
+    public String devide(@RequestParam int a, @RequestParam int b) {
+        return String.valueOf(a / b);
+    }
+
+    @GetMapping("/subtract")
+    public String substruct(@RequestParam int a, @RequestParam int b) {
+        return String.valueOf(a - b);
+    }
 }
