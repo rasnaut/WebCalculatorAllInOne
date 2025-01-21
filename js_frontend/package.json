@@ -13,17 +13,14 @@
     "devDependencies": {
         "@babel/core": "^7.14.6",
         "@babel/preset-env": "^7.14.7",
+        "dotenv": "^16.4.5",
         "eslint": "^7.29.0",
         "jest": "^27.0.6",
         "jest-fetch-mock": "^3.0.3",
         "jsdom": "^16.6.0",
-        "lite-server": "^2.6.1",
-        "dotenv": "^16.4.5"
+        "lite-server": "^2.6.1"
     },
     "jest": {
         "testEnvironment": "jsdom"
-    },
-    "babel": {
-        "presets": ["@babel/preset-env"]
     }
 }
