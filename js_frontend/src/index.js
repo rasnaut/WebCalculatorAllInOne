@@ -25,7 +25,16 @@ function calculate() {
                 return result;
              });
     }
+ 
+    if (currentOperation === 'sin') {
+        fetch(`http://localhost:8080/api/calculator/sin?a=${firstOperand}`)
+            .then(response => response.text())
+            .then(result => { 
+                display.value = result;
+                return result;
+             }); 
+    } 
     return Promise.resolve();
 }
 
-module.exports = { appendNumber, setOperation, calculate };
+export { appendNumber, setOperation, calculate };
