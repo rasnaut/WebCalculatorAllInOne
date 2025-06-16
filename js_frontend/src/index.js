@@ -25,6 +25,16 @@ function calculate() {
                 return result;
              });
     }
+
+    if (currentOperation === 'sqrt') {
+        fetch(`http://localhost:8080/api/calculator/sqrt?a=${firstOperand}`)
+       
+            .then(response => response.text())
+            .then(result => { 
+                display.value = result;
+                return result;
+             });
+    }
     return Promise.resolve();
 }
 
