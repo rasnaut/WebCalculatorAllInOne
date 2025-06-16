@@ -25,7 +25,18 @@ function calculate() {
                 return result;
              });
     }
+
+    if (currentOperation === 'Log') {
+        fetch(`http://localhost:8080/api/calculator/log?a=${firstOperand}`)
+            .then(response => response.text())
+            .then(result => { 
+                display.value = result;
+                return result;
+             });
+    }
     return Promise.resolve();
+
+    
 }
 
 module.exports = { appendNumber, setOperation, calculate };
