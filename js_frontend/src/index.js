@@ -32,9 +32,9 @@ function calculate() {
             .then(result => { 
                 display.value = result;
                 return result;
-             });
-    }
+             }); 
+    } 
     return Promise.resolve();
 }
 
-module.exports = { appendNumber, setOperation, calculate };
+export { appendNumber, setOperation, calculate };
