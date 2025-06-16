@@ -1,31 +1,18 @@
-let currentOperation = null;
-let firstOperand = null;
+ 
 
-function appendNumber(number) {
+
+function calculateLn() {
     const display = document.getElementById('display');
-    display.value += number;
-}
+    const firstOperand = parseFloat(display.value);
 
-function setOperation(operation) {
-    const display = document.getElementById('display');
-    firstOperand = parseInt(display.value);
-    currentOperation = operation;
-    display.value = '';
-}
-
-function calculate() {
-    const display = document.getElementById('display');
-    const secondOperand = parseInt(display.value);
-
-    if (currentOperation === '+') {
-        fetch(`http://localhost:8080/api/calculator/add?a=${firstOperand}&b=${secondOperand}`)
-            .then(response => response.text())
-            .then(result => { 
-                display.value = result;
-                return result;
-             });
+    if (firstOperand <= 0 || isNaN(firstOperand)) {
+        display.value = 'Error';
+        return;
     }
-    return Promise.resolve();
+    fetch(`http://localhost:8080/api/calculator/ln?a=${firstOperand}`)
+        .then(response => response.text())
+        .then(result => {
+            display.value = result;
+            return result;
+        });
 }
-
-module.exports = { appendNumber, setOperation, calculate };
