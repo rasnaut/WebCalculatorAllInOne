@@ -26,7 +26,15 @@ function calculate() {
              });
     }
 
-    if (currentOperation === 'cos') {
+  if (currentOperation === 'Log') {
+        fetch(`http://localhost:8080/api/calculator/log?a=${firstOperand}`)
+            .then(response => response.text())
+            .then(result => { 
+                display.value = result;
+                return result;
+             });
+    }
+      if (currentOperation === 'cos') {
         fetch(`http://localhost:8080/api/calculator/cos?a=${firstOperand}`)
             .then(response => response.text())
             .then(result => { 
@@ -34,8 +42,19 @@ function calculate() {
                 return result;
              });
     }
-    
+    if (currentOperation === '%') {
+        fetch(`http://localhost:8080/api/calculator/prcnt?a=${firstOperand}`)
+            .then(response => response.text())
+            .then(result => { 
+                display.value = result;
+                return result;
+             });
+    }
+
+
     return Promise.resolve();
+
+    
 }
 
 module.exports = { appendNumber, setOperation, calculate };
