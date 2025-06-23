@@ -13,6 +13,13 @@ function setOperation(operation) {
     display.value = '';
 }
 
+function switchToBinary() {
+    const display = document.getElementById('display');
+    const value = parseInt(display.value);
+    if (isNaN(value)) return;
+    display.value = value.toString(2);
+}
+
 function calculate() {
     const display = document.getElementById('display');
     const secondOperand = parseInt(display.value);
