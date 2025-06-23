@@ -1,18 +1,41 @@
- 
+let currentOperation = null;
+let firstOperand = null;
 
-
-function calculateLn() {
+function appendNumber(number) {
     const display = document.getElementById('display');
-    const firstOperand = parseFloat(display.value);
-
-    if (firstOperand <= 0 || isNaN(firstOperand)) {
-        display.value = 'Error';
-        return;
-    }
-    fetch(`http://localhost:8080/api/calculator/ln?a=${firstOperand}`)
-        .then(response => response.text())
-        .then(result => {
-            display.value = result;
-            return result;
-        });
+    display.value += number;
 }
+
+function setOperation(operation) {
+    const display = document.getElementById('display');
+    firstOperand = parseInt(display.value);
+    currentOperation = operation;
+    display.value = '';
+}
+
+function calculate() {
+    const display = document.getElementById('display');
+    const secondOperand = parseInt(display.value);
+
+    if (currentOperation === '+') {
+        fetch(`http://localhost:8080/api/calculator/add?a=${firstOperand}&b=${secondOperand}`)
+            .then(response => response.text())
+            .then(result => { 
+                display.value = result;
+                return result;
+             });
+    }
+
+    if (currentOperation === 'cos') {
+        fetch(`http://localhost:8080/api/calculator/ln?a=${firstOperand}`)
+            .then(response => response.text())
+            .then(result => { 
+                display.value = result;
+                return result;
+             });
+    }
+    
+    return Promise.resolve();
+}
+
+module.exports = { appendNumber, setOperation, calculate };
