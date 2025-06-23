@@ -61,6 +61,15 @@ function calculate() {
     
 
 
+    if (currentOperation === 'powN') {
+        fetch(`http://localhost:8080/api/calculator/pow_n?a=${firstOperand}&b=${secondOperand}`)
+            .then(response => response.text())
+            .then(result => { 
+                display.value = result;
+                return result;
+             });
+    }
+
     return Promise.resolve();
 
     
