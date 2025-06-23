@@ -25,8 +25,7 @@ function calculate() {
                 return result;
              });
     }
-
-
+    
     if (currentOperation === 'switchToHex') {
         fetch(`http://localhost:8080/api/calculator/exp?a=${firstOperand}`)
 
