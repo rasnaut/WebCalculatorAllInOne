@@ -26,8 +26,13 @@ function calculate() {
              });
     }
 
+
+    if (currentOperation === 'switchToHex') {
+        fetch(`http://localhost:8080/api/calculator/exp?a=${firstOperand}`)
+
   if (currentOperation === 'Log') {
         fetch(`http://localhost:8080/api/calculator/log?a=${firstOperand}`)
+
             .then(response => response.text())
             .then(result => { 
                 display.value = result;
@@ -35,6 +40,14 @@ function calculate() {
              });
     }
 
+      if (currentOperation === 'cos') {
+        fetch(`http://localhost:8080/api/calculator/cos?a=${firstOperand}`)
+            .then(response => response.text())
+            .then(result => { 
+                display.value = result;
+                return result;
+             });
+    }
     if (currentOperation === '%') {
         fetch(`http://localhost:8080/api/calculator/prcnt?a=${firstOperand}`)
             .then(response => response.text())
@@ -43,6 +56,26 @@ function calculate() {
                 return result;
              });
     }
+      if (currentOperation === 'ln') {
+        fetch(`http://localhost:8080/api/calculator/ln?a=${firstOperand}`)
+            .then(response => response.text())
+            .then(result => { 
+                display.value = result;
+                return result;
+             });
+    }
+    
+
+
+    if (currentOperation === 'powN') {
+        fetch(`http://localhost:8080/api/calculator/pow_n?a=${firstOperand}&b=${secondOperand}`)
+            .then(response => response.text())
+            .then(result => { 
+                display.value = result;
+                return result;
+             });
+    }
+
 
     return Promise.resolve();
 
