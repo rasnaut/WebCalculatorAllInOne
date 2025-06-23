@@ -13,7 +13,6 @@ function setOperation(operation) {
     display.value = '';
 }
 
-
 function calculate() {
     const display = document.getElementById('display');
     const secondOperand = parseInt(display.value);
