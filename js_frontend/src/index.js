@@ -27,5 +27,24 @@ function calculate() {
     }
     return Promise.resolve();
 }
+function calculatePow2() {
+    const firstOperand = parseFloat(document.getElementById('display').value); // замените 'display' на ваш id
+
+    if (isNaN(firstOperand)) {
+        alert("Введите число");
+        return;
+    }
+
+    fetch(`http://localhost:8080/api/calculator/pow2?a=${firstOperand}``)
+        .then(response => response.json()) // если сервер возвращает JSON
+        .then(result => {
+            document.getElementById('display').value = result; // покажи результат
+        })
+        .catch(error => {
+            console.error("Ошибка:", error);
+            alert("Не удалось выполнить возведение в квадрат");
+        });
+}
+
 
 module.exports = { appendNumber, setOperation, calculate };
