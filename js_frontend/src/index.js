@@ -13,12 +13,22 @@ function setOperation(operation) {
     display.value = '';
 }
 
+
 function calculate() {
     const display = document.getElementById('display');
     const secondOperand = parseInt(display.value);
 
     if (currentOperation === '+') {
         fetch(`http://localhost:8080/api/calculator/add?a=${firstOperand}&b=${secondOperand}`)
+            .then(response => response.text())
+            .then(result => { 
+                display.value = result;
+                return result;
+             });
+    }
+
+    if (currentOperation === 'switchToHex') {
+        fetch(`http://localhost:8080/api/calculator/exp?a=${firstOperand}`)
             .then(response => response.text())
             .then(result => { 
                 display.value = result;
