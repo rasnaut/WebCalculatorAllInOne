@@ -25,9 +25,26 @@ function calculate() {
                 return result;
              });
     }
+
     
+     if (currentOperation === '-') {
+        fetch(`http://localhost:8080/api/calculator/sub?a=${firstOperand}&b=${secondOperand}`)
+            .then(response => response.text())
+            .then(result => { 
+                display.value = result;
+                return result;
+             });
+    }
+
+
     if (currentOperation === 'switchToHex') {
         fetch(`http://localhost:8080/api/calculator/exp?a=${firstOperand}`)
+            .then(response => response.text())
+            .then(result => { 
+                display.value = result;
+                return result;
+             });
+    }
 
   if (currentOperation === 'Log') {
         fetch(`http://localhost:8080/api/calculator/log?a=${firstOperand}`)
