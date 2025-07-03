@@ -37,6 +37,6 @@ class JCalculatorApplicationTests {
     void testSin3(){
         CalculatorController controller = new CalculatorController();
         String actual = controller.sin(Math.PI/2);
-        assertThat(actual).isEqualTo("0.0");
+        assertThat(actual).isEqualTo("1.0");
     }
 }
