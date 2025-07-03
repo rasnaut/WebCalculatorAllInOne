@@ -20,9 +20,23 @@ class JCalculatorApplicationTests {
     }
 
     @Test
-    void testSin(){
+    void testSin1(){
         CalculatorController controller = new CalculatorController();
         String actual = controller.sin(Math.PI/2);
         assertThat(actual).isEqualTo("1.0");
+    }
+
+    @Test
+    void testSin2(){
+        CalculatorController controller = new CalculatorController();
+        String actual = controller.sin(0);
+        assertThat(actual).isEqualTo("0.0");
+    }
+
+    @Test
+    void testSin3(){
+        CalculatorController controller = new CalculatorController();
+        String actual = controller.sin(Math.PI/2);
+        assertThat(actual).isEqualTo("0.0");
     }
 }
