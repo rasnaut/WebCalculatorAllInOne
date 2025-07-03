@@ -11,6 +11,11 @@ public class CalculatorController {
         return String.valueOf(a + b);
     }
 
+    @GetMapping("/sub")
+    public String subtract(@RequestParam int a, @RequestParam int b) {
+        return String.valueOf(a - b);
+    }
+
     @PostMapping("/sqrt")
     public String  sqrt (@RequestParam double a) {
         if (a <= 0){

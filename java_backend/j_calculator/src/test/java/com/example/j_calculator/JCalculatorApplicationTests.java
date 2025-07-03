@@ -18,4 +18,11 @@ class JCalculatorApplicationTests {
         String result = controller.add(2, 3);
         assertThat(result).isEqualTo("5");
     }
+
+    @Test
+    void testSub() {
+        CalculatorController controller = new CalculatorController();
+        String result = controller.sub(10, 4);
+        assertThat(result).isEqualTo("6");
+    }
 }
