@@ -12,7 +12,7 @@ public class CalculatorController {
     }
 
     @GetMapping("/sub")
-    public String subtract(@RequestParam int a, @RequestParam int b) {
+    public String sub(@RequestParam int a, @RequestParam int b) {
         return String.valueOf(a - b);
     }
 
