@@ -20,6 +20,6 @@ public class CalculatorController {
     }
     @PostMapping("/pow3")
     public String  pow3 (@RequestParam double a)
-        return String.valueOf(Math.pow(a, 3));
+        return String.valueOf(Math.pow(a,b:3));
     }
 }
