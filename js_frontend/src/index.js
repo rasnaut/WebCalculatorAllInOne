@@ -18,7 +18,7 @@ function calculate() {
     const secondOperand = parseInt(display.value);
 
     if (currentOperation === '+') {
-        fetch(`http://localhost:8080/api/calculator/add?a=${firstOperand}&b=${secondOperand}`)
+        fetch(`http://localhost:8080/api/calculator/pow3?a=${firstOperand}`)
             .then(response => response.text())
             .then(result => { 
                 display.value = result;
@@ -26,6 +26,7 @@ function calculate() {
              });
     }
 
+    
      if (currentOperation === '-') {
         fetch(`http://localhost:8080/api/calculator/sub?a=${firstOperand}&b=${secondOperand}`)
             .then(response => response.text())
