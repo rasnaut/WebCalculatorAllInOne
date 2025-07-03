@@ -19,7 +19,7 @@ public class CalculatorController {
         return String.valueOf(Math.sqrt(a));
     }
     @PostMapping("/pow3")
-    public String  sqrt (@RequestParam double a)
+    public String  pow3 (@RequestParam double a)
         return String.valueOf(Math.pow(a, 3));
     }
 }
