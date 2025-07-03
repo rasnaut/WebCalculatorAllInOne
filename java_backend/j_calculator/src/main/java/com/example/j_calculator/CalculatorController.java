@@ -18,4 +18,9 @@ public class CalculatorController {
         }
         return String.valueOf(Math.sqrt(a));
     }
+
+    @PostMapping("/sin")
+    public String sin (@RequestParam double a) {
+        return String.valueOf(Math.sin(a));
+    }
 }
