@@ -20,7 +20,7 @@ public class CalculatorController {
     }
 
     @PostMapping("/pow2")
-    public String square(@RequestParam double a) {
+    public String power_2(@RequestParam double a) {
         return String.valueOf(Math.pow(a, 2));
     }
 }
