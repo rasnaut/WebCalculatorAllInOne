@@ -21,6 +21,6 @@ public class CalculatorController {
 
     @PostMapping("/sin")
     public String sin (@RequestParam double a) {
-        return String.valueOf(Math.sin(a));
+        return String.valueOf(Math.floor(Math.sin(a)));
     }
 }
