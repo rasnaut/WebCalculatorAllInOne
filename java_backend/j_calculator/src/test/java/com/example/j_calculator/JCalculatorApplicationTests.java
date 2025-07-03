@@ -18,4 +18,11 @@ class JCalculatorApplicationTests {
         String result = controller.add(2, 3);
         assertThat(result).isEqualTo("5");
     }
+
+    @Test
+    void testSin(){
+        CalculatorController controller = new CalculatorController();
+        String actual = controller.sin(Math.PI/2);
+        assertThat(actual).isEqualTo("1.0");
+    }
 }
