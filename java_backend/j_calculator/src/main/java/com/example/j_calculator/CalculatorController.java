@@ -26,4 +26,9 @@ public class CalculatorController {
         }
         return String.valueOf(Math.log10(a));
     }
+
+    @PostMapping("/pow2")
+    public String power_2(@RequestParam double a) {
+        return String.valueOf(Math.pow(a, 2));
+    }
 }
