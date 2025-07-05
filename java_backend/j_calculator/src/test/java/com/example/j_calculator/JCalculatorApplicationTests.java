@@ -19,3 +19,4 @@ class JCalculatorApplicationTests {
         assertThat(result).isEqualTo("5");
     }
 }
+
