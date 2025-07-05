@@ -18,11 +18,11 @@ public class CalculatorController {
         }
         return String.valueOf(Math.sqrt(a));
     }
- 74-back-add-pow-3-functionality
+
     @PostMapping("/pow3")
-    public String  pow3 (@RequestParam double a)
+    public String  pow3 (@RequestParam double a){
         return String.valueOf(Math.pow(a, 3));
-=======
+}
 
     @PostMapping("/pow2")
     public String power_2(@RequestParam double a) {
