@@ -19,16 +19,21 @@ public class CalculatorController {
         return String.valueOf(Math.sqrt(a));
     }
 
+    @PostMapping("/pow3")
+    public String pow3(@RequestParam double a) {
+        return String.valueOf(Math.pow(a, 3));
+}
+
+    @PostMapping("/pow2")
+    public String power_2(@RequestParam double a) {
+        return String.valueOf(Math.pow(a, 2));
+    }
+
     @PostMapping("/log")
     public String log(@RequestParam double a) {
         if (a <= 0) {
             throw new IllegalArgumentException("number has to be positive");
         }
         return String.valueOf(Math.log10(a));
-    }
-
-    @PostMapping("/pow2")
-    public String power_2(@RequestParam double a) {
-        return String.valueOf(Math.pow(a, 2));
     }
 }
