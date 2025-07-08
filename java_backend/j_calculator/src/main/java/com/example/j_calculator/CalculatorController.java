@@ -31,4 +31,9 @@ public class CalculatorController {
     public String power_2(@RequestParam double a) {
         return String.valueOf(Math.pow(a, 2));
     }
+
+    @PostMapping("/sin")
+    public String sin (@RequestParam double a) {
+        return String.format(java.util.Locale.US,"%.1f", Math.sin(a));
+    }
 }
