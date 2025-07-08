@@ -47,3 +47,4 @@ class JCalculatorApplicationTests {
         assertThat(actual).isEqualTo("-1.0");
     }
 }
+

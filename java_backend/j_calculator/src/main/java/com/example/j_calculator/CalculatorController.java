@@ -12,11 +12,24 @@ public class CalculatorController {
     }
 
     @PostMapping("/sqrt")
-    public String  sqrt (@RequestParam double a) {
-        if (a <= 0){
+    public String sqrt(@RequestParam double a) {
+        if (a <= 0) {
             throw new IllegalArgumentException("number has to be positive");
         }
         return String.valueOf(Math.sqrt(a));
+    }
+
+    @PostMapping("/log")
+    public String log(@RequestParam double a) {
+        if (a <= 0) {
+            throw new IllegalArgumentException("number has to be positive");
+        }
+        return String.valueOf(Math.log10(a));
+    }
+
+    @PostMapping("/pow2")
+    public String power_2(@RequestParam double a) {
+        return String.valueOf(Math.pow(a, 2));
     }
 
     @PostMapping("/sin")
