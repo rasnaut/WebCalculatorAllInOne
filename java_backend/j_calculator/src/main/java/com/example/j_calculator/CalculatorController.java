@@ -3,9 +3,9 @@ package com.example.j_calculator;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/calculator")
+@RequestMapping("/api/j_calculator")
 public class CalculatorController {
-
+    
     @GetMapping("/add")
     public String add(@RequestParam int a, @RequestParam int b) {
         return String.valueOf(a + b);
@@ -28,7 +28,7 @@ public class CalculatorController {
     public String percentOf(@RequestParam double a, @RequestParam double b) {
         return String.valueOf(a*b*0.01);
     }
-  
+
     @PostMapping("/log")
     public String log(@RequestParam double a) {
         if (a <= 0) {
