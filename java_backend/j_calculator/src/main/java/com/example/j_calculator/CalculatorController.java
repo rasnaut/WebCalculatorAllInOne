@@ -20,7 +20,7 @@ public class CalculatorController {
     }
 
     @PostMapping("/prcnt")
-    public String prcnt (@RequestParam double a, @RequestParam double b) {
+    public String percentOf(@RequestParam double a, @RequestParam double b) {
         return String.valueOf(a*b*0.01);
     }
   
