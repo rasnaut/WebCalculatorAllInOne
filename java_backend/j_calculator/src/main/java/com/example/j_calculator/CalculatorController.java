@@ -19,6 +19,11 @@ public class CalculatorController {
         return String.valueOf(Math.sqrt(a));
     }
 
+    @GetMapping("/cos")
+    public String cos(@RequestParam double a) {
+        return String.valueOf(Math.cos(a));
+    }
+
     @PostMapping("/prcnt")
     public String percentOf(@RequestParam double a, @RequestParam double b) {
         return String.valueOf(a*b*0.01);

@@ -46,5 +46,12 @@ class JCalculatorApplicationTests {
         String actual = controller.sin(3*Math.PI/2);
         assertThat(actual).isEqualTo("-1.0");
     }
+
+    @Test
+    void cosTest() {
+        CalculatorController controller = new CalculatorController();
+        String actual = controller.cos(0);
+        assertThat(actual).isEqualTo("1.0");
+    }
 }
 
