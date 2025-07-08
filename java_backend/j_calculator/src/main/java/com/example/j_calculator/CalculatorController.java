@@ -19,6 +19,11 @@ public class CalculatorController {
         return String.valueOf(Math.sqrt(a));
     }
 
+    @PostMapping("/prcnt")
+    public String percentOf(@RequestParam double a, @RequestParam double b) {
+        return String.valueOf(a*b*0.01);
+    }
+  
     @PostMapping("/log")
     public String log(@RequestParam double a) {
         if (a <= 0) {
