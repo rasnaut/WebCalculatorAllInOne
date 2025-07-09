@@ -26,7 +26,7 @@ class JCalculatorApplicationTests {
         assertThat(result).isEqualTo("6.0");
     }
 
-    @Test=
+    @Test
 
     void testSin1(){
         CalculatorController controller = new CalculatorController();

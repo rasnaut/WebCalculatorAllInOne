@@ -17,8 +17,8 @@ public class CalculatorController {
     }
 
     @PostMapping("/sqrt")
-    public String sqrt(@RequestParam double a) {
-        if (a <= 0) {
+    public String  sqrt (@RequestParam double a) {
+        if (a <= 0){
             throw new IllegalArgumentException("number has to be positive");
         }
         return String.valueOf(Math.sqrt(a));
