@@ -20,6 +20,14 @@ class JCalculatorApplicationTests {
     }
 
     @Test
+    void testSub() {
+        CalculatorController controller = new CalculatorController();
+        String result = controller.sub(10, 4);
+        assertThat(result).isEqualTo("6.0");
+    }
+
+    @Test
+
     void testSin1(){
         CalculatorController controller = new CalculatorController();
         String actual = controller.sin(Math.PI/2);
@@ -45,6 +53,7 @@ class JCalculatorApplicationTests {
         CalculatorController controller = new CalculatorController();
         String actual = controller.sin(3*Math.PI/2);
         assertThat(actual).isEqualTo("-1.0");
+      
     }
 
     @Test
