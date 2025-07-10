@@ -1,0 +1,55 @@
+name: Backend CI Ivan
+
+on:
+  push:
+    branches: [ 34-add-and-setup-docker-compose ]
+  
+
+jobs:
+  generate-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+
+    - name: Set up JDK 11
+      uses: actions/setup-java@v4
+      with:
+        java-version: '11'
+        distribution: 'adopt'
+
+    - name: Generate test
+      run: |
+        cd java_backend/j_calculator/
+        mkdir -p src/test/java/com/example/j_calculator/generated
+        cat <<EOF > src/test/java/com/example/j_calculator/generated/GeneratedTest.java
+        package com.example.j_calculator;
+
+        import org.junit.jupiter.api.Test;
+        import org.springframework.boot.test.context.SpringBootTest;
+
+        import static org.assertj.core.api.Assertions.assertThat;
+
+        @SpringBootTest
+        class JCalculatorGeneratedApplicationTests {
+
+          @Test
+          void contextLoads() {
+          }
+
+          @Test
+            void testAdd() {
+                CalculatorController controller = new CalculatorController();
+                String result = controller.add(4, 4);
+                assertThat(result).isEqualTo("8");
+            }
+        }
+        EOF
+
+    - name: Compile test
+      run: javac java_backend/j_calculator/generated/GeneratedTest.java
+
+    - name: Run test
+      run: java -cp java_backend/j_calculator/generated GeneratedTest
